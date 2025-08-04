@@ -26,15 +26,19 @@ public class ProjectSecurityConfig {
     ClientRegistrationRepository clientRegistrationRepository() {
         ClientRegistration githubClient = githubClientRegistration();
         ClientRegistration facebookClient = facebookClientRegistration();
-        return new InMemoryClientRegistrationRepository(githubClient,facebookClient);
+        return new InMemoryClientRegistrationRepository(githubClient);
     }
 
     private ClientRegistration githubClientRegistration() {
-        return CommonOAuth2Provider.GITHUB.getBuilder("github").clientId("clientId").clientSecret("clientSecret")
-                .scope("read:user").build();
+        return CommonOAuth2Provider.GITHUB.getBuilder("github")
+                .clientId("Ov23liADe6azXju7muBj")
+                .clientSecret("your app real secret")
+                .build();
     }
     private ClientRegistration facebookClientRegistration() {
-        return CommonOAuth2Provider.FACEBOOK.getBuilder("facebook").clientId("clientId").clientSecret("clientSecret")
-                .scope("read:user").build();
+        return CommonOAuth2Provider.FACEBOOK.getBuilder("facebook")
+                .clientId("clientId")
+                .clientSecret("clientSecret")
+                .build();
     }
 }
